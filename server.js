@@ -82,7 +82,6 @@ app.post('/api/register', function(req, res) {
 });
 
 //3.0
-
 var isAuthed = function(req, res, next) { // before you can access the below GETs and POSTs you need to be authenticated
 	if (!req.isAuthenticated()) {
 		return res.status(403).end();
@@ -97,7 +96,7 @@ app.post('/api/todos', isAuthed, todoController.create) {
 	//create a new todo
 });
 
-app.post('/api/todos/:id', isAuthed, todoController.save) { // why ID, so we can only save one todo item at once
+app.post('/api/todos/:id', isAuthed, todoController.update) { // why ID, so we can only save one todo item at once // MAY NEED TO BE 'UPDATE'
 	//save/update the todo item
 });
 
